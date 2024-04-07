@@ -65,7 +65,7 @@ func (creds GithubCredentials) postIssue(repo string, todo Todo, body string) (T
 }
 
 func (creds GithubCredentials) getHost() string {
-	return "github.com"
+	return "github.gatech.edu"
 }
 
 // GithubCredentialsFromFile gets GithubCredentials from a filepath
