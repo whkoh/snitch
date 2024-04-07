@@ -36,7 +36,7 @@ func (creds GithubCredentials) getIssue(repo string, todo Todo) (map[string]inte
 	json, err := creds.query(
 		"GET",
 		// FIXME(#59): possible GitHub API injection attack
-		"https://api.github.com/repos/"+repo+"/issues/"+(*todo.ID)[1:],
+		"https://github.gatech.edu/api/v3/repos/"+repo+"/issues/"+(*todo.ID)[1:],
 		nil)
 
 	if err != nil {
@@ -49,7 +49,7 @@ func (creds GithubCredentials) getIssue(repo string, todo Todo) (map[string]inte
 func (creds GithubCredentials) postIssue(repo string, todo Todo, body string) (Todo, error) {
 	json, err := creds.query(
 		"POST",
-		"https://api.github.com/repos/"+repo+"/issues",
+		"https://github.gatech.edu/api/v3/repos/"+repo+"/issues",
 		map[string]interface{}{
 			"title": todo.Title,
 			"body":  body,
